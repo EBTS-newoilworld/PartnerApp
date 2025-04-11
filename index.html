@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>앱 다운로드 안내</title>
+  <script>
+    window.onload = function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.fuel.partners&hl=ko&pli=1";
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/kr/app/%EC%8B%A0%EC%A3%BC%EC%9C%A0%EC%B2%9C%ED%95%98-%ED%8C%8C%ED%8A%B8%EB%84%88/id6741354265";
+      } else {
+        document.getElementById("fallback").style.display = "block";
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    #fallback {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>잠시만 기다려주세요...</h2>
+  <p>앱 다운로드 페이지로 이동 중입니다.</p>
+  <div id="fallback">
+    <p>자동 이동이 안 될 경우 아래 링크를 눌러주세요:</p>
+    <a href="https://play.google.com/store/apps/details?id=com.fuel.partners&hl=ko&pli=1">Android용 앱</a><br>
+    <a href="https://apps.apple.com/kr/app/%EC%8B%A0%EC%A3%BC%EC%9C%A0%EC%B2%9C%ED%95%98-%ED%8C%8C%ED%8A%B8%EB%84%88/id6741354265">iOS용 앱</a>
+  </div>
+</body>
+</html>
